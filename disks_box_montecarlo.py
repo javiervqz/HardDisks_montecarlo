@@ -1,6 +1,4 @@
 import random, os, pylab, math
-import sys
-import shutil
 
 
 output_dir = "movie_montecarlo_direct"
