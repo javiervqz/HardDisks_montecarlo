@@ -1,4 +1,4 @@
-import random, os, pylab, math
+import random, os, pylab, math, sys, time
 
 
 output_dir = "movie_montecarlo_direct"
@@ -47,6 +47,8 @@ for run  in range(runs):
     position = place(sigma, N, condition)
     snapshot(position, colors)
     print "Calculating...", 100*run/float(runs)
+    sys.stdout.write("\033[F") # Cursor up one line
+print "\n"
 print "animating..."
 os.system("convert -delay 9 -dispose Background +page " + str(output_dir) + "/*.png -loop 0 " + str(output_dir) + "/animation.gif")
 os.chdir(output_dir)
