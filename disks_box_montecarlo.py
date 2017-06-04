@@ -1,4 +1,4 @@
-import random, os, pylab, math, sys, time
+import random, os, pylab, math, sys, glob
 
 
 output_dir = "movie_montecarlo_direct"
@@ -52,5 +52,7 @@ print "\n"
 print "animating..."
 os.system("convert -delay 9 -dispose Background +page " + str(output_dir) + "/*.png -loop 0 " + str(output_dir) + "/animation.gif")
 os.chdir(output_dir)
+for filename in glob.glob('mc*') :
+    os.remove( filename )
 os.system("eog animation.gif")
 print "Done."
